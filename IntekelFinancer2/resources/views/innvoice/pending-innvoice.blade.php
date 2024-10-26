@@ -15,7 +15,7 @@
 <body style="background-color: #EAF6F7 !important">
     <header>
         <x-barra-superior/>
-        <x-nav-bar/>
+        <x-nav-bar/>    
     </header>
     <main>
         <div class="mt-4">
@@ -38,19 +38,22 @@
             margin-top: 1vh;
             gap:10px;">
             <a href="">
-                <p>
-                    Pendientes
-                </p>
+                <p
+                    style="font-family: sans-serif">
+                    Pendientes</p
+                >
             </a>
             <a href="">
-                <p>
-                    Timbradas
-                </p>
+                <p
+                    style="font-family: sans-serif">
+                    Timbradas</p
+                >
             </a>
             <a href="">
-                <p>
-                    Canceladas
-                </p>
+                <p
+                    style="font-family: sans-serif">
+                    Canceladas</p
+                >
             </a>
         </div>
         
