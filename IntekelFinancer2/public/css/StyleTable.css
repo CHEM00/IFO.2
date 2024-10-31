@@ -1,7 +1,10 @@
-#export-table {
 
+
+tr, th {
+    text-align: center;
 }
 
-th, td, tr {
-    border: 1px solid black;
+th {
+    background-color: #00892f;
+    color: white;
 }

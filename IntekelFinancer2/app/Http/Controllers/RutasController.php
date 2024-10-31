@@ -7,16 +7,15 @@ use Illuminate\Http\Request;
 class RutasController extends Controller
 {
     public function Registro() {
-        return view('Registre');
-    }
-
-    public function Login() {
-        return view('Login');
+        return view('Login-registre.Registre');
     }
 
     public function Home () {
-        return view('Inicio');
+        return view('Login-registre.Inicio');
     }
 
+    public function CreditNote() {
+        return view('Credit-Notes.CreditNote');
+    }
 
 }

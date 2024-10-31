@@ -13,7 +13,7 @@
         class="nav-item 
             flex-fill">
         <a
-            href="#tab1Id"
+            href="{{ route ('Inicio')}}"
             class="nav-link 
                 hover:bg-gray-100"
             aria-current="page"
@@ -24,7 +24,7 @@
     <li 
         class="nav-item flex-fill">
         <a
-            href="{{route ('pending-innvoice')}}"
+            href="{{route ('innvoice')}}"
             class="nav-link
                 hover:bg-gray-100"
             aria-current="page"
@@ -35,7 +35,7 @@
     <li class="nav-item 
         flex-fill">
         <a
-            href="#tab1Id"
+            href="{{route ('ProgramInvoice')}}"
             class="nav-link
                 hover:bg-gray-100"
             aria-current="page"
@@ -46,7 +46,7 @@
     <li class="nav-item 
             flex-fill">
         <a
-            href="#tab1Id"
+            href="{{route ('CreditNote')}}"
             class="nav-link
                 hover:bg-gray-100"
             aria-current="page"
@@ -57,7 +57,7 @@
     <li class="nav-item 
             flex-fill">
         <a
-            href="#tab1Id"
+            href="{{route ('Client')}}"
             class="nav-link
                 hover:bg-gray-100"
             aria-current="page"
@@ -68,7 +68,7 @@
     <li class="nav-item 
             flex-fill">
         <a
-            href="#tab1Id"
+            href="{{route ('Item')}}"
             class="nav-link 
                 hover:bg-gray-100"
             aria-current="page"
@@ -79,7 +79,7 @@
     <li class="nav-item 
             flex-fill">
         <a
-            href="#tab1Id"
+            href="{{route ('Payment')}}"
             class="nav-link
                 hover:bg-gray-100"
             aria-current="page"
@@ -91,7 +91,7 @@
     <li class="nav-item 
             flex-fill">
         <a
-            href="#tab1Id"
+            href="{{route ('User')}}"
             class="nav-link
                 hover:bg-gray-100"
             aria-current="page"
