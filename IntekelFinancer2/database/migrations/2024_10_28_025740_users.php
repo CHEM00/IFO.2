@@ -8,11 +8,13 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table){
-            $table -> id ();
+        Schema::create('users', function (Blueprint $table){
+            $table -> bigIncrements ('id');
             $table -> string ('email') -> unique ();
-            $table -> string ('password') -> required ();
+            $table -> timestamp('email_verified_at') -> nullable ();
+            $table -> string ('password');
             $table -> string ('qb_token') -> nullable ();
+            $table -> string ('qb_refresh_token') -> nullable ();
             $table -> string ('social_reason') -> nullable ();
             $table -> string ('address') -> nullable ();
             $table -> string ('phone') -> nullable ();
@@ -23,12 +25,15 @@ return new class extends Migration
             $table -> string ('rfc') -> unique () -> nullable ();
             $table -> string ('sat_key') -> unique () -> nullable ();
             $table -> string ('sat_cer') -> unique () -> nullable ();
+            $table -> string ('logo') -> nullable ();
+            $table -> tinyInteger ('role') -> nullable ();
+            $table -> rememberToken ();
             $table -> timestamps ();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('user');
+        Schema::dropIfExists('users');
     }
 };

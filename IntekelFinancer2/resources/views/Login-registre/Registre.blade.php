@@ -4,50 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--Agregamos el enlace a la hoja de estilos-->
-    <link rel="stylesheet" href=" {{ asset ('css/StyleRegistre.css')}}">
-    <!-- Bootstrap CSS v5.3.2 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"   crossorigin="anonymous" />
-    <!-- Icono de la aplicación -->
-    <link rel="icon" href=" {{ asset ('imgs/LogoIntekel.png')}}">
-    <!-- Enlace a la hoja de estilos de Flowbite -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Enlace a la hoja de estilos de Font Awesome -->
+    <link rel="icon" href="{{ asset('imgs/LogoIntekel.png') }}">
     <script src="https://kit.fontawesome.com/8519bc483d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Registro</title>
 </head>
-<body>
-    <div class="container p-0" id="container">
-        <!-- Div para el color en la parte superior -->
-        <div class="w-full h-14 rounded-top d-block" id="Div_BarraColor">
-            <div class="d-inline-block">
-                <a href="{{route('Login')}}">
-                    <span>Registro</span> <i id="Icon-x" class="fa-solid fa-xmark fa-2x"></i>    
-                </a>
-            </div>
+<body class="flex items-center justify-center min-h-screen" style="background-color: #EAF6F7">
+    <div class="w-full max-w-md mx-auto p-4">
+        <div class="bg-blue-900 w-full h-14 rounded-t-lg flex items-center justify-between px-4">
+            <strong class="text-white text-lg font-semibold">
+                Registro
+            </strong>
+            <a href="{{route ('Login')}}">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </a>
         </div>
-            <div class="Div_Form">
-                <form action="{{route ('Registre')}}" class="p-3" method="POST">
-                    <div class="mt-2 mb-3">
-                        <label for="email" class="form-label" id="Label_Correo">Correo Electrónico</label>
-                        <input type="email" class="form-control rounded" id="email" name="email" required>
-                    </div>
-                    <div class="mt-6 mb-3">
-                        <label for="password" class="form-label" id="Label_Contrasenia">Contraseña</label>
-                        <input type="password" class="form-control rounded" id="password" name="password" required>
-                    </div>
-                    <div class="mt-6 mb-6">
-                        <label for="password_confirmation" class="form-label" id="Label_Confirmar">Confirmar Contraseña</label>
-                        <input type="password" class="form-control rounded" id="password_confirmation" name="password_confirmation" required>
-                    </div>
-                    <div class="mb-6">
-                        <input type="checkbox" name="" id="">
-                        <label for="checkbox" id="Label_Checkbox">Acepto los términos y condiciones</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="Submit_Registrarse">Registrarse</button>
-                </form>
-            </div>
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <form action="{{route ('register')}}" method="POST" class="space-y-4">
+                @csrf
+                <div>
+                    <label for="email" class="block text-2xl font-medium text-gray-700">Correo Electrónico</label>
+                    <input type="email" class="mt-1 font-sans block w-full rounded-md border-gray-400 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-xl bg-gray-100" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password" class="block text-2xl font-medium text-gray-700">Contraseña</label>
+                    <input type="password" class="mt-1 block w-full rounded-md border-gray-400 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-xl bg-gray-100" id="password" name="password" required>
+                </div>
+                <div>
+                    <label for="password_confirmation" class="block text-2xl font-medium text-gray-700">Confirmar Contraseña</label>
+                    <input type="password" class="mt-1 block w-full rounded-md border-gray-400 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-xl bg-gray-100" id="password_confirmation" name="password_confirmation" required>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" name="terms" id="check" class="h-4 w-4 text-blue-600 border-gray-400 rounded">
+                    <label for="check" class="ml-2 block text-xl text-gray-900">Acepto los términos y condiciones</label>
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-700">Registrarse</button>
+                </div>
+            </form>
         </div>
-    </div>                        
+    </div>
 </body>
 </html>

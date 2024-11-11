@@ -1,102 +1,18 @@
-<ul
-    class="nav nav-tabs 
-        display-flex 
-        justify-content-between" 
-    role="tablist"
-    style="background-color: #fff;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 0.9em;
-        font-weight: 600;"
->
-    <li 
-        class="nav-item 
-            flex-fill">
-        <a
-            href="{{ route ('Inicio')}}"
-            class="nav-link 
-                hover:bg-gray-100"
-            aria-current="page"
-            style="color: #000000;"
-        >Inicio
-        </a>
-    </li>
-    <li 
-        class="nav-item flex-fill">
-        <a
-            href="{{route ('innvoice')}}"
-            class="nav-link
-                hover:bg-gray-100"
-            aria-current="page"
-            style="color: #000000;"
-            >Factura
-        </a>
-    </li>
-    <li class="nav-item 
-        flex-fill">
-        <a
-            href="{{route ('ProgramInvoice')}}"
-            class="nav-link
-                hover:bg-gray-100"
-            aria-current="page"
-            style="color: #000000;"
-            >Facturas programadas
-        </a>
-    </li>
-    <li class="nav-item 
-            flex-fill">
-        <a
-            href="{{route ('CreditNote')}}"
-            class="nav-link
-                hover:bg-gray-100"
-            aria-current="page"
-            style="color: #000000;"
-            >Notas de crédito
-        </a>
-    </li>
-    <li class="nav-item 
-            flex-fill">
-        <a
-            href="{{route ('Client')}}"
-            class="nav-link
-                hover:bg-gray-100"
-            aria-current="page"
-            style="color: #000000;"
-        >Clientes
-        </a>
-    </li>
-    <li class="nav-item 
-            flex-fill">
-        <a
-            href="{{route ('Item')}}"
-            class="nav-link 
-                hover:bg-gray-100"
-            aria-current="page"
-            style="color: #000000;"
-            >Productos
-        </a>
-    </li>
-    <li class="nav-item 
-            flex-fill">
-        <a
-            href="{{route ('Payment')}}"
-            class="nav-link
-                hover:bg-gray-100"
-            aria-current="page"
-            style="color: #000000;
-            "
-            >Pagos
-        </a>
-    </li>
-    <li class="nav-item 
-            flex-fill">
-        <a
-            href="{{route ('User')}}"
-            class="nav-link
-                hover:bg-gray-100"
-            aria-current="page"
-            style="color: #000000;"
-            >Usuarios
-        </a>
-    </li> 
-</ul>
+<nav class="bg-white">
+    <div class="w-full flex-1">
+        <div class="flex items-center justify-between">
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="w-full flex flex-wrap justify-between">
+                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Factura</a>
+                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Facturas programadas</a>
+                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Notas de crédito</a>
+                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Clientes</a>
+                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Productos</a>
+                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Pagos</a>
+                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Usuarios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
