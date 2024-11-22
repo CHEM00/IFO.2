@@ -14,7 +14,7 @@
 <body style="background-color: #EAF6F7 !important">
     <header>
         <!-- Color y menú de la barra superior -->
-        <x-barra-superior />
+        <x-Encabezado />
         <!-- Nav tabs -->
         <x-nav-bar />
     </header>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="w-full max-w-96">
-                        <form class="flex items-center">
+                        <form class="flex items-center" method="POST" action="{{route('client.index')}}">
                             <label for="simple-search" class="sr-only">Search</label>
                             <div class="relative w-full">
                                 <input type="text" id="simple-search"
@@ -86,24 +86,25 @@
                                 <th scope="col" class="px-6 py-3">Razón social</th>
                                 <th scope="col" class="px-6 py-3">Regimen fiscal</th>
                                 <th scope="col" class="px-6 py-3">Código postal</th>
-                                <th scope="col" class="px-6 py-3"></th>
+                                <th scope="col" class="px-6 py-3">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="px-6 py-4">12345</td>
-                                <td class="px-6 py-4">John Doe</td>
-                                <td class="px-6 py-4">$100.00</td>
-                                <td class="px-6 py-4">Pending</td>
-                                <td class="px-6 py-4">
-                                    <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown"
-                                        class="items-center justify-center py-2 px-4 text-sm font-medium text-white bg-green-700 rounded-lg "
-                                        type="button">
-                                        Acciones
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach($clients as $client)
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <td class="px-6 py-4">{{ $client->rfc }}</td>
+                                    <td class="px-6 py-4">{{ $client->social_reason }}</td>
+                                    <td class="px-6 py-4">{{ $client->tax_regime }}</td>
+                                    <td class="px-6 py-4">{{ $client->postal_code }}</td>
+                                    <td class="px-6 py-4">
+                                        <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown"
+                                            class="items-center justify-center py-2 px-4 text-sm font-medium text-white bg-green-700 rounded-lg"
+                                            type="button">
+                                            Acciones
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

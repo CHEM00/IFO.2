@@ -7,7 +7,9 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
+use App\Models\User;
+use Illuminate\Contracts\View\View;
+
 
 class AuthenticatedSessionController extends Controller
 {
@@ -16,7 +18,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('Login-registre.AddDataProfile');
+        return view ('Login-registre.Welcome');
     }
 
     /**
@@ -24,11 +26,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        try {
+            $request->authenticate();
 
-        $request->session()->regenerate();
+            $request->session()->regenerate();
 
-        return redirect()->intended(route('AddData', absolute: false));
+            return redirect()->intended('/Inicio');
+        } catch (\Exception $e) {
+            return back()->with('error', 'El correo ingresado no existe o la contraseña es incorrecta');
+        }
     }
 
     /**

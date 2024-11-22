@@ -2,3 +2,8 @@
     font-family: 'Monserrat';
     src: url(Montserrat-Medium.ttf) format('truetype');
 }
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(OpenSans_SemiCondensed-Regular.ttf) format('truetype');
+}

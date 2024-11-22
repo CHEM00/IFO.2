@@ -8,9 +8,11 @@
     <link rel="icon" href="{{ asset('imgs/LogoIntekel.png') }}">
     <title>Completar registro</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
     <style>
         body {
             zoom: 90%;
+            font-family: 'Open Sans', sans-serif;
         }
     </style>
 </head>
@@ -20,59 +22,92 @@
         <x-Nav-bar />
     </header>
     <main class="container mx-auto p-4">
-        <div class="shadow-lg rounded-lg p-8" style="background-color:#EAF6F7">
-            <h2 class="text-3xl font-bold mb-8 justify-center text-gray-800">Configuración del perfil</h2>
-            <form action="" method="POST" enctype="multipart/form-data" class="space-y-6">
-                @csrf
-                @method('PUT')
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="social_reason" class="block text-lg font-medium text-gray-700">Razón Social</label>
-                        <input type="text" name="social_reason" id="social_reason" class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
-                    </div>
-                    <div>
-                        <label for="address" class="block text-lg font-medium text-gray-700">Dirección</label>
-                        <input type="text" name="address" id="address" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
-                    </div>
-                    <div>
-                        <label for="phone" class="block text-lg font-medium text-gray-700">Teléfono</label>
-                        <div class="relative">
-                            <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
-                                    <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
-                                </svg>
-                            </span>
-                            <input type="text" name="phone" id="phone" class="pl-10 mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="city" class="block text-lg font-medium text-gray-700">Ciudad</label>
-                        <input type="text" name="city" id="city" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
-                    </div>
-                    <div>
-                        <label for="state" class="block text-lg font-medium text-gray-700">Estado</label>
-                        <input type="text" name="state" id="state" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
-                    </div>
-                    <div>
-                        <label for="country" class="block text-lg font-medium text-gray-700">País</label>
-                        <input type="text" name="country" id="country" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
-                    </div>
-                    <div>
-                        <label for="zip_code" class="block text-lg font-medium text-gray-700">Código Postal</label>
-                        <input type="text" name="zip_code" id="zip_code" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
-                    </div>
-                    <div>
-                        <label for="rfc" class="block text-lg font-medium text-gray-700">RFC</label>
-                        <input type="text" name="rfc" id="rfc" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
-                    </div>
-                    <div>
-                        <label for="logo" class="block text-lg font-medium text-gray-700">Logo</label>
-                        <input type="file" name="logo" id="logo" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
-                    </div>
-                <div class="mt-8">
-                    <button type="submit" class="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-lg">Guardar</button>
+        <div class="flex flex-col md:flex-row">
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
                 </div>
-            </form>
+            @endif
+
+            <!-- Vertical Navigation Bar -->
+            <nav class="w-full md:w-1/4 h-min bg-white shadow-lg rounded-lg p-4 mb-6 md:mb-0 md:mr-6">
+                <ul class="space-y-4">
+                    <li>
+                        <a href="" class="block text-lg font-medium text-gray-800 hover:text-indigo-500">Datos Generales</a>
+                    </li>
+                    <li>
+                        <a href="" class="block text-lg font-medium text-indigo-500">Quickbooks</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Main Content -->
+            <div class="w-full md:w-3/4 max-h-[90vh] overflow-auto bg-white shadow-lg rounded-lg p-6">
+                <form action="{{route('user.profile.update')}}" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
+                    @csrf
+                    <fieldset class="mb-6">
+                        <legend class="text-2xl font-bold text-gray-800">Datos Generales</legend>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 border border-gray-300 rounded-lg p-4">
+                            <div>
+                                <label for="social_reason" class="block text-lg font-medium text-gray-700">Razón social</label>
+                                <input type="text" name="social_reason" id="social_reason" value="{{$user->social_reason}}" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm text-lg" required>
+                            </div>
+                            <div>
+                                <label for="tax_regime" class="block text-lg font-medium text-gray-700">Regimen fiscal</label>
+                                <input type="text" name="tax_regime" id="tax_regime" value="{{$user->tax_regime}}" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm text-lg" required>
+                            </div>
+                            <div>
+                                <label for="rfc" class="block text-lg font-medium text-gray-700">RFC</label>
+                                <input type="text" name="rfc" id="rfc" value="{{$user->rfc}}" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
+                            </div>
+                            <div>
+                                <label for="hour_zone" class="block text-lg font-medium text-gray-700">Zona horaria</label>
+                                <input type="text" name="hour_zone" value="{{$user->hour_zone}}" id="hour_zone" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="mb-6">
+                        <legend class="text-2xl font-bold text-gray-800">Datos del domicilio</legend>
+                        <div class="max-h-[75vh] overflow-y-auto p-4 border border-gray-300 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="postal_code" class="block text-lg font-medium text-gray-700">Código postal</label>
+                                    <input type="text" name="postal_code" id="postal_code" value="{{$user->postal_code}}" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
+                                </div>
+                                <div>
+                                    <label for="township" class="block text-lg font-medium text-gray-700">Municipio</label>
+                                    <input type="text" name="township" id="township" value="{{$user->township}}" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
+                                </div>
+                                <div>
+                                    <label for="state" class="block text-lg font-medium text-gray-700">Estado</label>
+                                    <input type="text" name="state" id="state" value="{{$user->state}}" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
+                                </div>
+                                <div>
+                                    <label for="country" class="block text-lg font-medium text-gray-700">País</label>
+                                    <input type="text" name="country" id="country" value="{{$user->country}}" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
+                                </div>
+                                <div>
+                                    <label for="address" class="block text-lg font-medium text-gray-700">Dirección</label>
+                                    <input type="text" name="address" id="address" value="{{$user->address}}" class="mt-1 block w-full pl-1 rounded-lg border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-lg font-medium text-gray-700">Teléfono</label>
+                                    <input type="number" name="phone" id="phone" value="{{$user->phone}}" class="mt-1 block rounded-lg w-full border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg" required>
+                                </div>
+                                <div>
+                                    <label for="logo" class="block text-lg font-medium text-gray-700">Logo</label>
+                                    <input type="file" name="logo" id="logo" value="{{$user->logo}}" class="mt-1 block w-full border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="flex justify-end">
+                        <button type="submit" class="mt-6 px-6 py-3 bg-emerald-500 text-white text-lg font-medium rounded-lg hover:bg-emerald-800">Guardar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 </body>
