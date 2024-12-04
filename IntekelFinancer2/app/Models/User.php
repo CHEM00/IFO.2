@@ -43,4 +43,17 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Client::class);
     }
+
+    public function items(){
+        return $this->hasMany(Item::class);
+    }
+
+    public function postal_codes(){
+        return $this->hasOne(PostalCode::class, 'c_PostalCode', 'c_PostalCode');
+    }
+
+    public function tax_regimes(){
+        return $this->hasOne(TaxRegime::class, 'c_TaxRegime', 'c_TaxRegime');
+    }
+
 }

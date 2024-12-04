@@ -8,7 +8,7 @@
                     <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Facturas programadas</a>
                     <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Notas de crédito</a>
                     <a href="{{route('client.index')}}" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Clientes</a>
-                    <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Productos</a>
+                    <a href="{{route('item.index')}}" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Productos</a>
                     <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Pagos</a>
                     <a href="#" class="flex-grow text-center text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium">Usuarios</a>
                 </div>

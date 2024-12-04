@@ -17,7 +17,7 @@ class ValidateUserProfile
 
         // Verificar que el usuario esté autenticado
         if (!$user) {
-            return redirect()->route('login');
+            return redirect()->route('Login');
         }
 
         // Campos requeridos para validar
@@ -39,7 +39,7 @@ class ValidateUserProfile
             if (empty($user->$field)) {
                 // Redirigir a la página de actualización de perfil con un mensaje
                 return redirect()->route('user.profile.update')
-                    ->with('error', 'Por favor, completa tu perfil antes de continuar.');
+                    ->with('error', 'Por favor, completa tu perfil para poder utilizar el sistema.');
             }
         }
 

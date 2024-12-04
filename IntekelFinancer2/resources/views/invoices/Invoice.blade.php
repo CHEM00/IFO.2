@@ -16,7 +16,7 @@
 <body style="background-color: #EAF6F7 !important">
     <header>
         <!-- Color y menú de la barra superior -->
-        <x-barra-superior />
+        <x-Encabezado />
         <!-- Nav tabs -->
         <x-nav-bar />
     </header>

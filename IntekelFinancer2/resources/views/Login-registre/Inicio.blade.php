@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Inicio</title>
 </head>
-<body>
+<body class="bg-gray-100">
     <!-- Color y menú de la barra superior -->
     <x-Encabezado/>
     <!-- Nav tabs -->

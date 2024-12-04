@@ -7,7 +7,6 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 
 
@@ -31,7 +30,10 @@ class AuthenticatedSessionController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->intended('/Inicio');
+            if (empty(Auth::user()->rfc)) {
+                return redirect()->route('user.profile');
+            }
+            return redirect() -> route('Inicio');
         } catch (\Exception $e) {
             return back()->with('error', 'El correo ingresado no existe o la contraseña es incorrecta');
         }
