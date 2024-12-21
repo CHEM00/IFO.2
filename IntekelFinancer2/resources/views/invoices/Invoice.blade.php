@@ -137,7 +137,7 @@
         </div>
         <!-- Modal -->
         <div id="softGreenModal" tabindex="-1" aria-hidden="true"
-            class="fixed inset-0 flex items-center justify-center bg-slate-900 bg-opacity-60 z-50 hidden">
+            class="fixed inset-0 items-center justify-center bg-slate-900 bg-opacity-60 z-50 hidden">
             <div
                 class="relative w-full max-w-6xl max-h-[90vh] p-6 bg-gray-800 rounded-lg shadow-lg text-gray-200 overflow-y-auto">
                 <div class="flex justify-between items-center pb-4 mb-4 border-b border-emerald-600">

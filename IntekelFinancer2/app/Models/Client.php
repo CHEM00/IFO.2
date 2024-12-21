@@ -14,10 +14,10 @@ class Client extends Model
         'address',
         'exterior_number',
         'interior_number',
-        'locality',
-        'township',
-        'state',
-        'country',
+        'c_Locality',
+        'c_Township',
+        'c_State',
+        'c_Country',
         'credit_days',
         'bank',
         'clabe',
@@ -27,7 +27,6 @@ class Client extends Model
         'c_TypePayment',
         'c_Cfdi',
         'c_Colony',
-        'id_user'
     ];
 
     public function user()

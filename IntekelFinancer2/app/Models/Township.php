@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Township extends Model
 {
-    
+    protected $table = 'townships';
     protected $fillable = [
         'c_Township',
         'description',
@@ -22,5 +22,9 @@ class Township extends Model
     public function postalCode()
     {
         return $this->hasMany(PostalCode::class, 'c_Township', 'c_Township') -> where('c_State', $this->c_State);
+    }
+
+    public function user(){
+        return $this->hasMany(User::class, 'c_Township', 'c_Township');
     }
 }

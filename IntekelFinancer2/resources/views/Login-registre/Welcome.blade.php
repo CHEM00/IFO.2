@@ -14,9 +14,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="font-sans">
-    <main class="flex items-center min-h-screen"
-        style="background: linear-gradient(to right, #4E9E19 50%, #ffffff 50%);">
+<body class="font-sans text-gray-900 dark:text-gray-100 transition-colors duration-500 dark:bg-gray-900 dark:bg-gradient-to-r bg-green-800 dark:from-gray-900 dark:to-gray-800">
+    <div class="absolute top-4 right-4">
+        <label class="relative inline-flex items-center cursor-pointer">
+            <input class="sr-only peer" type="checkbox" id="darkModeToggle" />
+            <div
+                class="w-24 h-12 rounded-full ring-0 peer duration-500 outline-none bg-gray-200 dark:bg-gray-700 overflow-hidden before:flex before:items-center before:justify-center after:flex after:items-center after:justify-center before:content-['☀️'] before:absolute before:h-10 before:w-10 before:top-1/2 before:bg-white before:rounded-full before:left-1 before:-translate-y-1/2 before:transition-all before:duration-700 peer-checked:before:opacity-0 peer-checked:before:rotate-90 peer-checked:before:-translate-y-full shadow-lg shadow-gray-400 peer-checked:shadow-lg peer-checked:shadow-gray-700 peer-checked:bg-[#383838] after:content-['🌑'] after:absolute after:bg-[#1d1d1d] after:rounded-full after:top-[4px] after:right-1 after:translate-y-full after:w-10 after:h-10 after:opacity-0 after:transition-all after:duration-700 peer-checked:after:opacity-100 peer-checked:after:rotate-180 peer-checked:after:translate-y-0"
+            ></div>
+        </label>
+    </div>
+    <main class="flex items-center min-h-screen transition-colors duration-500">
         <div class="flex flex-col md:flex-row w-full">
             <div class="flex items-center justify-center w-full md:w-1/2 p-6">
                 <!-- Mostrar mensaje de éxito -->
@@ -50,38 +57,39 @@
                     </div>
                     @csrf
                     <div class="mb-4">
-                        <label for="Input_Email" class="block text-gray-900 font-semibold text-lg">Correo
+                        <label for="Input_Email" class="block text-gray-900 dark:text-gray-100 font-semibold text-lg">Correo
                             electrónico</label>
-                        <input type="email" name = "email"
-                            class="form-control w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        <input type="email" name="email"
+                            class="form-control w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-gray-500"
                             id="Input_Email" placeholder="Ejemplo@correo.com" required>
                     </div>
                     <div class="mb-4">
-                        <label for="Input_Password" class="block text-gray-900 font-semibold text-lg">Contraseña</label>
+                        <label for="Input_Password" class="block text-gray-900 dark:text-gray-100 font-semibold text-lg">Contraseña</label>
                         <input type="password" name="password"
-                            class="form-control w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            class="form-control w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-gray-500"
                             id="Input_Password" placeholder="********" required>
                     </div>
-                    <div class="mb-4 flex items-center justify-between">
+                    <div class="flex items-center justify-between mb-6">
                         <div class="flex items-center">
-                            <input type="checkbox" name= "remember" class="form-check-input" id="CheckBox">
-                            <label class="ml-2 text-gray-900 text-lg" for="CheckBox">Recuérdame</label>
+                            <input type="checkbox" name="remember" id="remember"
+                                class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded dark:bg-gray-800 dark:border-gray-600">
+                            <label for="remember" class="ml-2 block text-gray-900 dark:text-gray-100">Recuérdame</label>
                         </div>
-                        <a href="#" class="text-black hover:underline text-lg">¿Olvidaste tu contraseña?</a>
+                        <a href="{{}}" class="text-sm text-green-600 hover:text-green-500 dark:text-gray-400">¿Olvidaste tu contraseña?</a>
                     </div>
                     <button type="submit"
-                        class="btn btn-primary w-full py-3 bg-white text-black rounded-md hover:bg-gray-300 transition duration-300 text-lg">Iniciar
-                        sesión</button>
-                    <div class="mt-4 text-center">
-                        <p class="text-gray-900 text-lg">¿No tienes cuenta? <a href="{{ route('register') }}"
-                                class="text-blue-700 hover:underline">Regístrate</a></p>
-                    </div>
+                        class="w-full py-3 px-4 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-500">
+                        Iniciar sesión
+                    </button>
                 </form>
             </div>
-            <div class="hidden md:block md:w-1/2 min-h-screen"></div>
         </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('change', function() {
+            document.documentElement.classList.toggle('dark', this.checked);
+        });
+    </script>
 </body>
 
 </html>

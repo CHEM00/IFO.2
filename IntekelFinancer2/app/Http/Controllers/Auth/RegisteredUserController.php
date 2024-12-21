@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
     $user = User::create([
         'email' => $request->email,
         'password' => Hash::make($request->password),
-        'role' => 1,
+
     ]);
 
     // No autenticar automáticamente, solo dispara el evento

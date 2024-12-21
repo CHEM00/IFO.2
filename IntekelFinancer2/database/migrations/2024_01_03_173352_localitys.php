@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->primary(['c_Locality', 'c_State']);
 
-            
+            $table->foreign('c_State')->references('c_State')->on('states');
             
         });
     }

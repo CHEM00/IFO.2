@@ -23,13 +23,15 @@ class ValidateUserProfile
         // Campos requeridos para validar
         $requiredFields = [
             'social_reason',
-            'tax_regime',
+            'c_TaxRegime',
             'rfc',
             'hour_zone',
-            'postal_code',
-            'township',
-            'state',
-            'country',
+            'c_PostalCode',
+            'c_Township',
+            'c_State',
+            'c_Country',
+            'c_Locality',
+            'c_Colony',
             'address',
             'phone',
         ];

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tax_regimes', function (Blueprint $table){
+        Schema::create('taxregimes', function (Blueprint $table){
             $table -> string ('c_TaxRegime') -> unique();
             $table -> string ('description') -> notnullable();
             $table -> string ('physics') -> notnullable();

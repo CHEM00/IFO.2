@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class ClientController extends Controller
 {
     public function create(){
-        $clients = Auth::user()->clients;
+        $clients = Auth::user()->client;
         return view('Clients.client', compact('clients'));
     }
 
@@ -24,7 +24,6 @@ class ClientController extends Controller
 
     public function edit($id){
         $client = Auth::user()->clients()->find($id);
-        return view('Clients.edit', compact('client'));
     }
 
     public function destroy($id){

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cfdi extends Model
 {
+    protected $table = 'cfdis';
     protected $fillable = [
         'c_Cfdi',
         'description',

@@ -31,4 +31,8 @@ class State extends Model
     {
         return $this->hasMany(Locality::class, 'c_State', 'c_State');
     }
+
+    public function user(){
+        return $this->hasMany(User::class, 'c_State', 'c_State');
+    }
 }

@@ -20,8 +20,7 @@ use App\Http\Controllers\ItemController;
     ->middleware('auth', 'verified')
     ->name('user.get.address');
 
-
-Route::post('/Clientes', [ClientController::class, 'store'])
+    Route::post('/Clientes', [ClientController::class, 'store'])
     ->middleware('auth', 'verified')
     ->name('client.store');
 

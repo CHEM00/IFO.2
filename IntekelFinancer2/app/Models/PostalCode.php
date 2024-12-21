@@ -38,8 +38,8 @@ class PostalCode extends Model
         return $this->hasMany(Township::class, 'c_Township', 'c_Township') -> where('c_State', $this->c_State);
     } 
 
-    public function localities(){
-        return $this->hasMany(Locality::class) -> where('c_State', $this->c_State);
+    public function locality(){
+        return $this->hasMany(Locality::class, 'c_Locality', 'c_Locality') -> where('c_State', $this->c_State);
     }
 
     public function country()

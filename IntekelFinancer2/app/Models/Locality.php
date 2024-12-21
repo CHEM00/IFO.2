@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Locality extends Model
 {
+    protected $table = 'localitys';
     protected $fillable = [
         'c_Locality',
         'description',
@@ -20,6 +21,10 @@ class Locality extends Model
     public function postalCode()
     {
         return $this->hasMany(PostalCode::class, 'c_Locality', 'c_Locality') -> where('c_State', $this->c_State);
+    }
+
+    public function user(){
+        return $this->hasMany(User::class, 'c_Locality', 'c_Locality');
     }
 
 }

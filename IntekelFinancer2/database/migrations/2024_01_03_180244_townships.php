@@ -20,7 +20,6 @@ return new class extends Migration
             $table -> foreign('c_State') -> references('c_State') -> on('states');
         });
     }
-
     /**
      * Reverse the migrations.
      */

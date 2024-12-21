@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('states', function (Blueprint $table){
             $table -> string ('c_State') -> unique();
             $table -> string ('stateName') -> notnullable();
-            
             $table -> string ('c_Country');
-
             $table -> foreign('c_Country')->references('c_Country')->on('countrys')->onDelete('cascade');
         });
     }

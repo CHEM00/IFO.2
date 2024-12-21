@@ -19,16 +19,19 @@ class User extends Authenticatable implements MustVerifyEmail
         'qb_token',
         'qb_refresh_token',
         'social_reason',
-        'tax_regime',
         'rfc',
         'hour_zone',
-        'postal_code',
-        'township',
-        'state',
-        'country',
         'address',
         'phone',
         'logo',
+
+        'c_PostalCode',
+        'c_Colony',
+        'c_TaxRegime',
+        'c_State',
+        'c_Township',
+        'c_Locality',
+        'c_Country',
     ];
     protected $hidden = [
         'password',
@@ -49,11 +52,30 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function postal_codes(){
-        return $this->hasOne(PostalCode::class, 'c_PostalCode', 'c_PostalCode');
+        return $this->belongsTo(PostalCode::class, 'c_PostalCode', 'c_PostalCode');
     }
 
     public function tax_regimes(){
-        return $this->hasOne(TaxRegime::class, 'c_TaxRegime', 'c_TaxRegime');
+        return $this->belongsTo(TaxRegime::class, 'c_TaxRegime', 'c_TaxRegime');
     }
 
+    public function states(){
+        return $this->belongsTo(State::class, 'c_State', 'c_State');
+    }
+
+    public function townships(){
+        return $this->belongsTo(Township::class, 'c_Township', 'c_Township');
+    }
+
+    public function localities(){
+        return $this->belongsTo(Locality::class, 'c_Locality', 'c_Locality');
+    }
+
+    public function countries(){
+        return $this->belongsTo(Country::class, 'c_Country', 'c_Country');
+    }
+
+    public function colony(){
+        return $this->belongsTo(Colony::class, 'c_Colony', 'c_Colony');
+    }
 }
